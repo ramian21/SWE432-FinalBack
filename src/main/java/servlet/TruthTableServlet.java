@@ -49,6 +49,7 @@ public class TruthTableServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        ops = new ArrayList<Integer>();
         res.setContentType("text/html");
         // res.setContentType("application/json");
         res.setHeader("Access-Control-Allow-Origin", "*");
@@ -119,7 +120,6 @@ public class TruthTableServlet extends HttpServlet {
         out.println("</table>");
 
         out.close();
-        ops = new ArrayList<Integer>();
 
         // res.setContentType("application/json");
         // res.setHeader("Access-Control-Allow-Origin", "");
