@@ -60,6 +60,7 @@ public class TruthTableServlet extends HttpServlet {
         Map<String, String[]> params = req.getParameterMap();
  
         if (params.get("inputString") == null) {
+            System.out.println("error");
             out.println("<span>No expression detected.</span>");
             out.close();
             return;
@@ -77,10 +78,21 @@ public class TruthTableServlet extends HttpServlet {
             } else {
                 clauses.add(tmp);
             }
+            System.out.printf("%s\n", tmp);
         }
         int numClauses = clauses.size();
         boolean[] truthVals = new boolean[numClauses];
 
+        System.out.println(clauses.size());
+        System.out.println(ops.size());
+        for (String string : clauses) {
+            System.out.printf("%s\n", string);
+            
+        }
+        for (Integer string : ops) {
+            System.out.printf("%d\n", string);
+            
+        }
         if ((clauses.size() - ops.size() != 1) || ops.size() == 0 || clauses.size() == 0) {
             out.println("<span>The predicate cannot be parsed, please check the logic operators and clauses.</span>");
             out.close();
